@@ -1,0 +1,22 @@
+{
+    "name": "mskocik/forms",
+    "description": "Additional form controls",
+    "type": "library",
+    "require": {
+        "php": ">=8.0 <8.3",
+        "nette/forms": "^3.1",
+        "nette/utils": "^3.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mskocik\\Forms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Martin Skocik",
+            "email": "mskocik@gmail.com"
+        }
+    ]
+}
