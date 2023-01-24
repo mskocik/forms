@@ -3,11 +3,11 @@
 namespace Mskocik\Forms\Controls;
 
 use Nette\Forms\Controls\SelectBox;
-use Mskocik\Forms\Utils\SvelecteTrait;
+use Mskocik\Forms\Utils\Svelecte;
 
 class SvelecteSelect extends SelectBox
 {
-    use SvelecteTrait;
+    use Svelecte;
 
     private $multiple = false;
 }

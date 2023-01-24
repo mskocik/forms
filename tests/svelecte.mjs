@@ -1,0 +1,1 @@
+C:/Users/mskoc/web/github/svelecte/dist/svelecte.mjs

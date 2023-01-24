@@ -2,12 +2,12 @@
 
 namespace Mskocik\Forms\Controls;
 
-use Mskocik\Forms\Utils\SvelecteTrait;
+use Mskocik\Forms\Utils\Svelecte;
 use Nette\Forms\Controls\MultiSelectBox;
 
 class SvelecteMultiSelect extends MultiSelectBox
 {
-    use SvelecteTrait;
+    use Svelecte;
 
     private $multiple = true;
 

@@ -1,0 +1,1 @@
+C:/Users/mskoc/web/github/svelty-picker/dist/svelty-picker-full.js
