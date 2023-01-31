@@ -14,7 +14,6 @@ interface SvelecteProps
     public const MAX = 'max';
     public const PLACEHOLDER = 'placeholder';
     public const COLLAPSE_SELECTION = 'collapse-selection';
-    public const CREATABLE = 'creatable';
     public const CREATABLE_PREFFIX = 'creatable-prefix';
     public const ALLOW_EDITING = 'allow-editing';
     public const KEEP_CREATED = 'keep-created';

@@ -24,6 +24,8 @@ trait Svelecte
 
     private $rawItems = [];
 
+    private $delimiter = ',';
+
 	/**
 	 * Sets options and option groups from which to choose.
      * 
@@ -85,6 +87,30 @@ trait Svelecte
     public function setParentSvelecte(string $parentHtmlId)
     {
         $this->svelecteParent = $parentHtmlId;
+        return $this;
+    }
+
+    /**
+     * Make svelecte creatable (ie. add new items)
+     *
+     * @param boolean $value
+     * @return static
+     */
+    public function setCreatable(bool $value = true, ?string $prefix = null, ?bool $allowEditing = null, string $delimiter = ',')
+    {
+        if ($value) {
+            $this->svelecteProps['creatable'] = '';
+        } else {
+            unset($this->svelecteProps['creatable']);
+        }
+        if ($prefix !== null) {
+            $this->svelecteProps[SvelecteProps::CREATABLE_PREFFIX] = $prefix;
+        }
+        if ($allowEditing !== null) {
+            $this->svelecteProps[SvelecteProps::ALLOW_EDITING] = boolval($allowEditing);
+        }
+        $this->delimiter = $delimiter;
+        $this->checkDefaultValue(false);
         return $this;
     }
 
@@ -186,7 +212,7 @@ trait Svelecte
             'multiple' => $this->multiple,
             'disabled' => $this->disabled ? 'disabled' : false,
             'value' => $this->multiple && is_array($this->value)
-                ? implode(',', $this->value)
+                ? implode($this->delimiter, $this->value)
                 : $this->value,
         ];
         if (!empty($this->svelecteProps)) $attrs = array_merge($attrs, $this->svelecteProps);
