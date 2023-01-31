@@ -115,12 +115,20 @@ trait Svelecte
     }
 
     /**
+     * Customize multiple value items separator
+     * 
      * @param string $delimiter
      * @return static
      */
     public function setValueDelimiter(string $delimiter)
     {
         $this->valueDelimiter = $this->svelecteProps['value-delimiter'] = $delimiter;
+        return $this;
+    }
+
+    public function setRenderer(string $renderFunctionName)
+    {
+        $this->svelecteProps['renderer'] = $renderFunctionName;
         return $this;
     }
 

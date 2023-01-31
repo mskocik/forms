@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use Mskocik\Forms\Utils\SvelecteProps;
 use Nette\Utils\ArrayHash;
 
 require './bootstrap.php';
@@ -45,7 +46,9 @@ $form->setMethod('get');
 //     ->setItems($options);
 $form->addSvelecteSelect('groups', 'Groups', $simpleObjects)
     ->setItemMapper(fn(ArrayHash $item) => ['id' => $item->id, 'label' => $item->label]);
-
+$form->addSvelecteMultiSelect('cr', 'Creatable')
+    ->setCreatable();
+    
 $form->addSubmit('send', 'Send')
     ->renderAsButton();
 
