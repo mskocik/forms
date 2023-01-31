@@ -24,7 +24,7 @@ trait Svelecte
 
     private $rawItems = [];
 
-    private $delimiter = ',';
+    private $valueDelimiter = ',';
 
 	/**
 	 * Sets options and option groups from which to choose.
@@ -109,8 +109,18 @@ trait Svelecte
         if ($allowEditing !== null) {
             $this->svelecteProps[SvelecteProps::ALLOW_EDITING] = boolval($allowEditing);
         }
-        $this->delimiter = $delimiter;
+        $this->setValueDelimiter($delimiter);
         $this->checkDefaultValue(false);
+        return $this;
+    }
+
+    /**
+     * @param string $delimiter
+     * @return static
+     */
+    public function setValueDelimiter(string $delimiter)
+    {
+        $this->valueDelimiter = $this->svelecteProps['value-delimiter'] = $delimiter;
         return $this;
     }
 
@@ -212,7 +222,7 @@ trait Svelecte
             'multiple' => $this->multiple,
             'disabled' => $this->disabled ? 'disabled' : false,
             'value' => $this->multiple && is_array($this->value)
-                ? implode($this->delimiter, $this->value)
+                ? implode($this->valueDelimiter, $this->value)
                 : $this->value,
         ];
         if (!empty($this->svelecteProps)) $attrs = array_merge($attrs, $this->svelecteProps);
