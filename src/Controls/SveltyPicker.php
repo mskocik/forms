@@ -112,8 +112,8 @@ class SveltyPicker extends BaseControl
         $hidden->removeAttribute('data-nette-rules');
 		$hidden->value = $this->value;
 		$wrap->value = $this->value;
-		$wrap->setAttribute('format-type', 'php');
-		$wrap->setAttribute('format', $this->format);
+		$wrap->setAttribute('display-format-type', 'php');
+		$wrap->setAttribute('display-format', $this->format);
         $this->isRequired() && $wrap->setAttribute('required', 'required');
 		$wrap->insert(0, $hidden);
 		$wrap->insert(1, $input);
