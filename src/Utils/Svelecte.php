@@ -5,6 +5,7 @@ namespace Mskocik\Forms\Utils;
 use Nette\Utils\Html;
 use Nette\Forms\Controls\SelectBox;
 use Nette\Forms\Controls\ChoiceControl;
+use Stringable;
 
 trait Svelecte
 {
@@ -156,9 +157,9 @@ trait Svelecte
     /** ************************************ overrides */
     /**
      * @override
-     * @return mixed
+     * @return string|int|null
      */
-    public function getValue()
+    public function getValue(): mixed
     {
         if ($this->allowOutOfValues) return $this->value ?: null;
 
@@ -170,7 +171,7 @@ trait Svelecte
      * @param bool $value
      * @return static
      */
-    public function checkDefaultValue(bool $value = true)
+    public function checkDefaultValue(bool $value = true): static
     {
         parent::checkDefaultValue($value);
         $this->allowOutOfValues = !$value;
@@ -181,7 +182,7 @@ trait Svelecte
      * @param string $prompt
      * @return static
      */
-    public function setPrompt($prompt)
+    public function setPrompt(string|Stringable|false $prompt): static
     {
         if ($this instanceof SelectBox) {
             parent::setPrompt($prompt);
