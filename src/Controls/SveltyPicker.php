@@ -121,7 +121,7 @@ class SveltyPicker extends BaseControl
 		return $wrap;
 	}
 
-	public function setHtmlAttribute(string $name, $value = true)
+	public function setHtmlAttribute(string $name, $value = true): static
 	{
 		$this->wrap->$name = $value;
 		if (
